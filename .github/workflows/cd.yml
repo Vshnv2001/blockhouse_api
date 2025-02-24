@@ -11,16 +11,22 @@ jobs:
     runs-on: self-hosted
 
     steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4  # Ensures the runner has access to your repo
+
+    - name: Verify Docker Compose Exists
+      run: ls -lah  # Debugging: Check if docker-compose.yml is present
+
     - name: Pull latest Docker images
       run: |
         sudo docker pull vshnv2001/blockhouse:latest
-        sudo docker pull postgres:15  # Pull the required database image
+        sudo docker pull postgres:15
 
     - name: Stop and Remove Old Containers
       run: |
         sudo docker compose down || true
         sudo docker system prune -af  # Clean up old containers and unused images
 
-    - name: Run Containers with Docker Compose
+    - name: Deploy Containers with Docker Compose
       run: |
         sudo docker compose up -d
