@@ -17,7 +17,7 @@ def get_db():
 
 
 @app.get('/') # get method to empty endpoint
-def first_response():
+def first_response(db: Session = Depends(get_db)):
     return crud.get_trade_orders(db)
 
 @app.get('/orders')
