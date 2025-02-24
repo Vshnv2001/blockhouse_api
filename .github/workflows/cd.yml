@@ -15,7 +15,7 @@ jobs:
       uses: actions/checkout@v4  # Ensures the runner has access to your repo
 
     - name: Verify Docker Compose Exists
-      run: ls -lah  # Debugging: Check if docker-compose.yml is present
+      run: ls -lah
 
     - name: Pull latest Docker images
       run: |
