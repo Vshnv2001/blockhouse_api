@@ -22,4 +22,4 @@ jobs:
     - name: Build the Docker image
       run: docker compose up --build -d
     - name: Tag and Push Images to Docker Hub
-      run: docker push docker push vshnv2001/blockhouse:latest
+      run: docker push vshnv2001/blockhouse:latest
