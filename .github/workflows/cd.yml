@@ -15,6 +15,9 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v4  # Ensures the runner has access to your repo
 
+    - name: Set Environment Variable to Prevent __pycache__
+      run: echo "PYTHONDONTWRITEBYTECODE=1" >> $GITHUB_ENV
+
     - name: Verify Docker Compose Exists
       run: ls -lah
 
